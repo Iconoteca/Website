@@ -4,80 +4,62 @@
     <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <div class="w3-container">
         <h1><b>Portfolio</b></h1>
+<?php if($icones->num_rows() > 0) { ?>
         <div class="w3-section w3-bottombar w3-padding-16">
             <button class="w3-button w3-black">TODOS</button>
             <button class="w3-button w3-white"></i>Lítico</button>
             <button class="w3-button w3-white">Cerâmica</button>
             <button class="w3-button w3-white">Outro</button>
         </div>
+<?php } ?>
     </div>
 </header>
 
-<!-- First Photo Grid-->
-<div class="w3-row-padding">
-    <div class="w3-third w3-container w3-margin-bottom">
-        <img src="assets/images/img1.jpg" alt="Imagem 1" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-            <p><b>Lorem Ipsum</b></p>
-            <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+<div id="portfolio-grid">
+<?php if($icones->num_rows() == 0) { ?>
+    <div class="w3-row-padding">
+        <div class="w3-container w3-margin-bottom">
+            <h2><b>O portfolio está vazio.</b></h2>
         </div>
     </div>
-
-    <div class="w3-third w3-container w3-margin-bottom">
-        <img src="assets/images/img2.jpg" alt="Imagem 2" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-            <p><b>Lorem Ipsum</b></p>
-            <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+<?php
+    } else {
+        $cont = 0;
+        foreach ($icones->result() as $icone) {
+            if($cont == 0) {
+?>
+        <div class="w3-row-padding">
+<?php       } ?>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <img src="<?= base_url('assets/images/figure/') . $icone->figure ?>" alt="Artefato <?= $icone->idArtefato ?>" style="width: 100%" class="w3-hover-opacity">
+                <div class="w3-container w3-white">
+                    <p><b><?= $icone->nome ?></b></p>
+                    <p><?= $icone->descPort ?></p>
+                </div>
+            </div>
+<?php
+            if(++$cont == 3) {
+                $cont = 0;
+?>
         </div>
-    </div>
-
-    <div class="w3-third w3-container">
-        <img src="assets/images/img3.jpg" alt="Imagem 3" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-            <p><b>Lorem Ipsum</b></p>
-            <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-        </div>
-    </div>
-</div>
-
-<!-- Second Photo Grid-->
-<div class="w3-row-padding">
-    <div class="w3-third w3-container w3-margin-bottom">
-        <img src="assets/images/img4.jpg" alt="Imagem 4" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-            <p><b>Lorem Ipsum</b></p>
-            <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-        </div>
-    </div>
-
-    <div class="w3-third w3-container w3-margin-bottom">
-        <img src="assets/images/img5.jpg" alt="Imagem 5" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-            <p><b>Lorem Ipsum</b></p>
-            <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-        </div>
-    </div>
-
-    <div class="w3-third w3-container">
-        <img src="assets/images/img6.jpg" alt="Imagem 6" style="width:100%" class="w3-hover-opacity">
-        <div class="w3-container w3-white">
-            <p><b>Lorem Ipsum</b></p>
-            <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-        </div>
-    </div>
+<?php
+            }
+        }
+    }
+?>
 </div>
 
 <!-- Pagination -->
-<!-- <div class="w3-center w3-padding-32">
-<div class="w3-bar">
-<a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
-<a href="#" class="w3-bar-item w3-black w3-button">1</a>
-<a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
-<a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
-<a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
-<a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+<div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+        <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+        <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+        <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+        <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+        <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+        <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+    </div>
 </div>
-</div> -->
 
 <div class="w3-container w3-padding-large" style="margin-bottom:32px" id="about">
     <h4><b>Sobre</b></h4>
