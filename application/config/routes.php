@@ -6,4 +6,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['(:any)'] = 'home/index/$1';
-$route['(:any)/(:num)'] = 'home/index/$1/$1';
+$route['(:any)/(:num)'] = 'home/index/$1/$2';

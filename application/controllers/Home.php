@@ -9,19 +9,10 @@ class Home extends CI_Controller
 	*/
 	public function index($param1 = 1, $param2 = 1)
 	{
-		$categoria = null;
-		$limit 	   = $param1;
+		$categoria = (is_numeric($param1)) ? null 	 : $param1;
+		$limit 	   = (is_numeric($param1)) ? $param1 : $param2;
 
-		// Se a busca não exigir categoria
-		if(is_numeric($param1) && $param1 == 0)
-			$limit++;
-		// Caso contrário
-		else if(!is_numeric($param1))
-		{
-			$categoria = $param1;
-			if($param2 == null || $param2 == 0) $param2 = 1;
-			$limit = $param2;
-		}
+		if($limit == 0) $limit++;
 
 		$dados['title']  	= "Iconoteca";
 		$dados['icones']	= $this->m_icone->get("artefatos", $categoria, $limit, "idArtefato", "desc");
@@ -42,7 +33,7 @@ class Home extends CI_Controller
 		$config['use_page_numbers'] = TRUE;
 		$config['cur_tag_open'] = '<a href="#" class="w3-bar-item w3-black w3-button">';
 		$config['cur_tag_close'] = '</a>';
-		$config['attributes'] = array('class' => 'w3-bar-item w3-button w3-hover-black');
+		$config['attributes'] = array('class' => 'w3-bar-item w3-button w3-white w3-hover-black');
 		$this->pagination->initialize($config);
 
 		$this->template->load('templates/default', 'home', $dados);
