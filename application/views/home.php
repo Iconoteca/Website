@@ -7,9 +7,12 @@
 <?php if($icones->num_rows() > 0) { ?>
         <div class="w3-section w3-bottombar w3-padding-16">
             <button class="w3-button w3-black">TODOS</button>
-            <button class="w3-button w3-white"></i>Lítico</button>
+            <?php foreach ($categorias->result() as $categoria): ?>
+                <button class="w3-button w3-white"><?= $categoria->nomeCategoria ?></button>
+            <?php endforeach; ?>
+            <!-- <button class="w3-button w3-white">Lítico</button>
             <button class="w3-button w3-white">Cerâmica</button>
-            <button class="w3-button w3-white">Outro</button>
+            <button class="w3-button w3-white">Outro</button> -->
         </div>
 <?php } ?>
     </div>
@@ -19,7 +22,7 @@
 <?php if($icones->num_rows() == 0) { ?>
     <div class="w3-row-padding">
         <div class="w3-container w3-margin-bottom">
-            <h2><b>O portfolio está vazio.</b></h2>
+            <h2><b>Nenhum artefato encontrado.</b></h2>
         </div>
     </div>
 <?php
@@ -34,7 +37,7 @@
                 <img src="<?= base_url('assets/images/figure/') . $icone->figure ?>" alt="Artefato <?= $icone->idArtefato ?>" style="width: 100%" class="w3-hover-opacity">
                 <div class="w3-container w3-white">
                     <p><b><?= $icone->nome ?></b></p>
-                    <p><?= $icone->descPort ?></p>
+                    <p><?= $icone->shortDesc ?></p>
                 </div>
             </div>
 <?php

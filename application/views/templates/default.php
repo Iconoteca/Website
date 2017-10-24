@@ -23,7 +23,9 @@
             <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
                 <i class="fa fa-remove"></i>
             </a>
-            <img src="<?= base_url('assets/logoUPF.png') ?>" style="width:75%;" class="w3-round"><br><br>
+            <a href="<?= base_url() ?>">
+                <img src="<?= base_url('assets/logoUPF.png') ?>" style="width:75%;" class="w3-round"><br><br>
+            </a>
             <h4><b>ICONOTECA</b></h4>
         </div>
         <div class="w3-bar-block">

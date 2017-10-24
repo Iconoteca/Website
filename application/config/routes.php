@@ -5,4 +5,4 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['(:num)'] = 'index.php/home/index/$1';
+$route['(:num)'] = 'home/index/$1';
