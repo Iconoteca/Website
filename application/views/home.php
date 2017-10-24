@@ -6,58 +6,60 @@
         <h1><b>Portfolio</b></h1>
 <?php if($icones->num_rows() > 0) { ?>
         <div class="w3-section w3-bottombar w3-padding-16">
-            <?php
-                $class = ($categoria == null) ? "w3-black" : "w3-white";
-                echo anchor("", "TODOS", array('class' => "w3-button $class"));
+            <div class="w3-row">
+                <?php
+                    $class = ($categoria == null) ? "w3-black" : "w3-white";
+                    echo anchor("", "TODOS", array('class' => "w3-button $class"));
 
-                foreach ($categorias->result() as $c)
-                {
-                    $class = ($categoria == $c->nomeURL) ? "w3-black" : "w3-white";
-                    echo anchor("$c->nomeURL/", "$c->nomeCategoria", array('class' => "w3-button $class"));
-                }
-            ?>
+                    foreach ($categorias->result() as $c)
+                    {
+                        $class = ($categoria == $c->nomeURL) ? "w3-black" : "w3-white";
+                        echo anchor("$c->nomeURL/", "$c->nomeCategoria", array('class' => "w3-button $class"));
+                    }
+                ?>
+            </div>
         </div>
 <?php } ?>
     </div>
 </header>
 
 <div id="portfolio-grid">
-<?php if($icones->num_rows() == 0) { ?>
-    <div class="w3-row-padding">
-        <div class="w3-container w3-margin-bottom">
-            <h2><b>Nenhum artefato encontrado.</b></h2>
-        </div>
-    </div>
-<?php
-    } else {
-        $cont = 0;
-        foreach ($icones->result() as $icone) {
-            if($cont == 0) {
-?>
+    <?php if($icones->num_rows() == 0) { ?>
         <div class="w3-row-padding">
-<?php       } ?>
-            <div class="w3-third w3-container w3-margin-bottom">
-                <img src="<?= base_url('assets/images/figure/') . $icone->figure ?>" alt="Artefato <?= $icone->idArtefato ?>" style="width: 100%" class="w3-hover-opacity">
-                <div class="w3-container w3-white">
-                    <p><b><?= $icone->nome ?></b></p>
-                    <p><?= $icone->shortDesc ?></p>
-                </div>
+            <div class="w3-container w3-margin-bottom">
+                <h2><b>Nenhum artefato encontrado.</b></h2>
             </div>
-<?php
-            if(++$cont == 3) {
-                $cont = 0;
-?>
         </div>
-<?php
+    <?php
+        } else {
+            $cont = 0;
+            foreach ($icones->result() as $icone) {
+                if($cont == 0) {
+    ?>
+            <div class="w3-row-padding">
+    <?php       } ?>
+                <div class="w3-third w3-container w3-margin-bottom">
+                    <img src="<?= base_url('assets/imagens/figuras/') . $icone->figure ?>" alt="Artefato <?= $icone->idArtefato ?>" style="width: 100%" class="w3-hover-opacity"/>
+                    <div class="w3-container w3-white">
+                        <p><b><?= $icone->nome ?></b></p>
+                        <p><?= $icone->shortDesc ?></p>
+                    </div>
+                </div>
+    <?php
+                if(++$cont == 3) {
+                    $cont = 0;
+    ?>
+            </div>
+    <?php
+                }
             }
         }
-    }
-?>
+    ?>
 </div>
 
 <!-- Pagination -->
 <div class="w3-center w3-padding-32">
-    <div class="w3-bar">
+    <div class="w3-bar w3-border w3-large">
         <?= $this->pagination->create_links(); ?>
     </div>
 </div>

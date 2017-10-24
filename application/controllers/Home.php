@@ -33,7 +33,7 @@ class Home extends CI_Controller
 		$config['use_page_numbers'] = TRUE;
 		$config['cur_tag_open'] = '<a href="#" class="w3-bar-item w3-black w3-button">';
 		$config['cur_tag_close'] = '</a>';
-		$config['attributes'] = array('class' => 'w3-bar-item w3-button w3-white w3-hover-black');
+		$config['attributes'] = array('class' => 'w3-bar-item w3-button w3-hover-black');
 		$this->pagination->initialize($config);
 
 		$this->template->load('templates/default', 'home', $dados);
