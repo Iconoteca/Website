@@ -3,19 +3,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller
 {
-
-	public function index($numArtefatos = 1)
+	/*
+		$param1 pode ser tanto a categoria quanto a página
+		$param2 só será chamado quando a categoria  ser especificada
+	*/
+	public function index($param1 = 1, $param2 = 1)
 	{
-		$dados['title']  	 = "Iconoteca";
-		$dados['icones'] 	 = $this->m_icone->get("artefatos", $numArtefatos, "desc");
-		$totalRows = $this->m_icone->get("artefatos")->num_rows();
+		$categoria = null;
+		$limit 	   = $param1;
 
-		if($dados['icones']->num_rows() > 0) $dados['categorias'] = $this->m_icone->get("categorias");
+		// Se a busca não exigir categoria
+		if(is_numeric($param1) && $param1 == 0)
+			$limit++;
+		// Caso contrário
+		else if(!is_numeric($param1))
+		{
+			$categoria = $param1;
+			if($param2 == null || $param2 == 0) $param2 = 1;
+			$limit = $param2;
+		}
+
+		$dados['title']  	= "Iconoteca";
+		$dados['icones']	= $this->m_icone->get("artefatos", $categoria, $limit, "idArtefato", "desc");
+		$dados['categoria']	= $categoria;
+		$totalRows = $this->m_icone->get("artefatos", $categoria)->num_rows();
+
+		if($dados['icones']->num_rows() > 0) $dados['categorias'] = $this->m_icone->get("categorias", null, null, "nomeCategoria", "asc");
+
+		$URLPagination = base_url();
+		if($categoria) $URLPagination = $URLPagination . "/$categoria/";
 
 		// Paginação
 		$this->load->library('pagination');
-
-		$config['base_url']   = base_url('');
+		$config['base_url']   = $URLPagination;
 		$config['total_rows'] = $totalRows;
 		$config['per_page']   = 6;
 		$config['num_links']  = 3;
@@ -24,7 +44,7 @@ class Home extends CI_Controller
 		$config['cur_tag_close'] = '</a>';
 		$config['attributes'] = array('class' => 'w3-bar-item w3-button w3-hover-black');
 		$this->pagination->initialize($config);
-		
+
 		$this->template->load('templates/default', 'home', $dados);
 	}
 }

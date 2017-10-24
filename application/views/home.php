@@ -6,13 +6,16 @@
         <h1><b>Portfolio</b></h1>
 <?php if($icones->num_rows() > 0) { ?>
         <div class="w3-section w3-bottombar w3-padding-16">
-            <button class="w3-button w3-black">TODOS</button>
-            <?php foreach ($categorias->result() as $categoria): ?>
-                <button class="w3-button w3-white"><?= $categoria->nomeCategoria ?></button>
-            <?php endforeach; ?>
-            <!-- <button class="w3-button w3-white">Lítico</button>
-            <button class="w3-button w3-white">Cerâmica</button>
-            <button class="w3-button w3-white">Outro</button> -->
+            <?php
+                $class = ($categoria == null) ? "w3-black" : "w3-white";
+                echo anchor("", "TODOS", array('class' => "w3-button $class"));
+
+                foreach ($categorias->result() as $c)
+                {
+                    $class = ($categoria == $c->nomeURL) ? "w3-black" : "w3-white";
+                    echo anchor("$c->nomeURL/", "$c->nomeCategoria", array('class' => "w3-button $class"));
+                }
+            ?>
         </div>
 <?php } ?>
     </div>
@@ -59,6 +62,7 @@
     </div>
 </div>
 
+<!-- About -->
 <div class="w3-container w3-padding-large" style="margin-bottom:32px" id="about">
     <h4><b>Sobre</b></h4>
     <p>Descrição do projeto. Just me, myself and I, exploring the universe of unknownment. I have a heart of love and an interest of lorem ipsum and mauris neque quam blog. I want to share my world with you. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
@@ -70,7 +74,7 @@
     <div class="w3-row-padding w3-center w3-padding-24" style="margin:0 -16px">
         <div class="w3-third w3-dark-grey">
             <p><i class="fa fa-envelope w3-xxlarge w3-text-light-grey"></i></p>
-            <p>victorbilly@upf.br</p>
+            <p>158943@upf.br</p>
         </div>
         <div class="w3-third w3-teal">
             <p><i class="fa fa-map-marker w3-xxlarge w3-text-light-grey"></i></p>
