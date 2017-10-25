@@ -7,6 +7,7 @@ class Artefato extends CI_Controller
     {
         $nomeArtefato = "Null"; // Posteriormente será buscado no DB
         $dados['title'] = "$nomeArtefato - Iconoteca";
+        $dados['paginaArtefato'] = TRUE;
 
         $this->template->load('templates/default', 'artefato', $dados);
     }

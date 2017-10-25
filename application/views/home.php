@@ -1,11 +1,11 @@
-<div class="w3-container">
+
     <!-- Header -->
     <header id="portfolio">
         <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
         <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
         <div class="w3-container">
             <h1><b>Portfolio</b></h1>
-    <?php if($icones->num_rows() > 0) { ?>
+    <?php if($artefatos->num_rows() > 0) { ?>
             <div class="w3-section w3-bottombar w3-padding-16">
                 <div class="w3-row">
                     <?php
@@ -25,7 +25,7 @@
     </header>
 
     <div id="portfolio-grid">
-        <?php if($icones->num_rows() == 0) { ?>
+        <?php if($artefatos->num_rows() == 0) { ?>
             <div class="w3-row-padding">
                 <div class="w3-container w3-margin-bottom">
                     <h2><b>Nenhum artefato encontrado.</b></h2>
@@ -34,16 +34,18 @@
         <?php
             } else {
                 $cont = 0;
-                foreach ($icones->result() as $icone) {
+                foreach ($artefatos->result() as $artefato) {
                     if($cont == 0) {
         ?>
                 <div class="w3-row-padding">
         <?php       } ?>
                     <div class="w3-third w3-container w3-margin-bottom">
-                        <img src="<?= base_url('assets/imagens/figuras/') . $icone->figure ?>" alt="Artefato <?= $icone->idArtefato ?>" style="width: 100%" class="w3-hover-opacity"/>
+                        <a href="<?= base_url('artefato/') . $artefato->idArtefato ?>">
+                            <img src="<?= base_url('assets/imagens/figuras/') . $artefato->figure ?>" alt="Artefato <?= $artefato->idArtefato ?>" style="width: 100%" class="w3-hover-opacity"/>
+                        </a>
                         <div class="w3-container w3-white">
-                            <p><b><?= $icone->nome ?></b></p>
-                            <p><?= $icone->shortDesc ?></p>
+                            <p><b><?= $artefato->nome ?></b></p>
+                            <p><?= $artefato->shortDesc ?></p>
                         </div>
                     </div>
         <?php
@@ -108,4 +110,3 @@
             <button type="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Enviar mensagem</button>
         </form>
     </div>
-</div>

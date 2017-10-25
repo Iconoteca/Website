@@ -15,11 +15,11 @@ class Home extends CI_Controller
 		if($limit == 0) $limit++;
 
 		$dados['title']  	= "Iconoteca";
-		$dados['icones']	= $this->m_icone->get("artefatos", $categoria, $limit, "idArtefato", "desc");
+		$dados['artefatos']	= $this->m_icone->get("artefatos", $categoria, $limit, "idArtefato", "desc");
 		$dados['categoria']	= $categoria;
 		$totalRows = $this->m_icone->get("artefatos", $categoria)->num_rows();
 
-		if($dados['icones']->num_rows() > 0) $dados['categorias'] = $this->m_icone->get("categorias", null, null, "nomeCategoria", "asc");
+		if($dados['artefatos']->num_rows() > 0) $dados['categorias'] = $this->m_icone->get("categorias", null, null, "nomeCategoria", "asc");
 
 		$URLPagination = base_url();
 		if($categoria) $URLPagination = $URLPagination . "/$categoria/";

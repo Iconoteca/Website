@@ -98,5 +98,13 @@
             document.getElementById("myOverlay").style.display = "none";
         }
     </script>
+<?php if(isset($paginaArtefato) && $paginaArtefato): ?>
+    <script src="<?= base_url('assets/js/jquery-3.2.1.min.js') ?>"></script>
+    <script src="<?= base_url('assets/js/three.min.js') ?>"></script>
+    <script src="<?= base_url('assets/js/TrackballControls.js') ?>"></script>
+    <script src="<?= base_url('assets/js/STLLoader.js') ?>"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBQYtYj4WuMuVmqJ7jZqVqihwFdkIAMqrU&amp;"></script>
+    <script src="<?= base_url('assets/js/artefato.js') ?>"></script>
+<?php endif; ?>
 </body>
 </html>
