@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <?= link_tag('assets/css/w3.css') ?>
+    <?= link_tag('assets/css/style.css') ?>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -39,8 +40,9 @@
 
     <!-- !PAGE CONTENT! -->
     <div class="w3-main" style="margin-left:300px">
-
-        <?= $contents ?>
+        <div id="content">
+            <?= $contents ?>
+        </div>
 
         <!-- Footer -->
         <footer class="w3-container w3-padding-32 w3-dark-grey">

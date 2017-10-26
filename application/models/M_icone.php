@@ -14,13 +14,13 @@ class M_icone extends CI_Model
         $categoria  categoria do artefato
         $name       nome do artefato
     */
-    public function get($table, $categoria = null, $limit = null, $orderBy = null, $orderHow = "desc", $id = null, $name = null)
+    public function get($table, $categoria = null, $limit = null, $orderBy = null, $orderHow = null, $id = null, $name = null)
     {
         if($id)        $this->db->where('idArtefato', $id);
         if($categoria) $this->db->where('categoria', $categoria);
         if($name)      $this->db->like('nome', $name);
         if($limit)     $this->db->limit(6, 6*($limit-1));
-        if($orderBy)   $this->db->order_by($orderBy, $orderHow);
+        if($orderBy)   $this->db->order_by($orderBy, ($orderHow) ? $orderHow : "desc");
         $this->db->from($table);
 
         return $this->db->get();
