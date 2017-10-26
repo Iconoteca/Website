@@ -1,6 +1,6 @@
 /* Mapa */
 function iniciarMapa(lat, lng) {
-    var mapCanvas = document.getElementById("mapa");
+    var mapCanvas = document.getElementById("map");
     var myCenter = new google.maps.LatLng(lat, lng);
     var mapOptions = {
         center: myCenter,
@@ -25,27 +25,26 @@ function iniciarMapa(lat, lng) {
 /* Three js */
 var scene, camera, renderer, controls, container;
 
-var divWidth = $("#obj").innerWidth(),
-	  divHeight = 2*$("#obj").innerWidth()/3;
+var divWidth = $("#artefato").innerWidth(),
+	divHeight = $("#artefato").innerHeight();
 
 function init(caminho) {
 	camera = new THREE.PerspectiveCamera( 50, divWidth/divHeight, 1, 2500 );
 	camera.position.z = 150;
 
 	scene = new THREE.Scene();
-	scene.fog = new THREE.Fog( 0x031634, 2, 2500 );
+	scene.fog = new THREE.Fog( 0xC0C0C0, 2, 2500 );
 
-	container = document.getElementById('obj');
+	container = document.getElementById('artefato');
 
 	// Controles
 	controls = new THREE.TrackballControls( camera , container );
 	controls.rotateSpeed = 3.5;
-	//controls.zoomSpeed = 1.2;
-	controls.panSpeed = 0.02;
-	controls.noZoom = false;
-	controls.noPan = true;
-	controls.staticMoving = true;
-	controls.dynamicDampingFactor = 0.3;
+	controls.zoomSpeed = 1.2;
+	// controls.panSpeed = 3.5;
+	// controls.noZoom = false;
+	// controls.noPan = false;
+	// controls.staticMoving = true;
 	controls.keys = [ 65, 83, 68 ];
 
 	var loader = new THREE.STLLoader();
@@ -100,8 +99,8 @@ function addShadowedLight( x, y, z, color, intensity ) {
 
 function onWindowResize() {
 	$(document).ready(function() {
-		divWidth = $("#obj").innerWidth();
-		divHeight = 2*$("#obj").innerWidth()/3;
+		divWidth = $("#artefato").innerWidth();
+		divHeight = 2*$("#artefato").innerWidth()/3;
 
 		camera.aspect = divWidth / divHeight;
 		camera.updateProjectionMatrix();
@@ -119,7 +118,7 @@ function render() {
 	renderer.render( scene, camera );
 }
 
-function Executar(arquivo, latitude, longitude) {
+function startApp(arquivo, latitude, longitude) {
 	$(document).ready(function() {
 		init(arquivo);
 		animate();

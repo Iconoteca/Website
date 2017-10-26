@@ -40,6 +40,8 @@
 
     <!-- !PAGE CONTENT! -->
     <div class="w3-main" style="margin-left:300px">
+        <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+        <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
         <div id="content">
             <?= $contents ?>
         </div>
@@ -105,8 +107,9 @@
     <script src="<?= base_url('assets/js/three.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/TrackballControls.js') ?>"></script>
     <script src="<?= base_url('assets/js/STLLoader.js') ?>"></script>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBQYtYj4WuMuVmqJ7jZqVqihwFdkIAMqrU&amp;"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBQYtYj4WuMuVmqJ7jZqVqihwFdkIAMqrU&amp"></script>
     <script src="<?= base_url('assets/js/artefato.js') ?>"></script>
+    <script> startApp("<?= $arquivo ?>", <?= $latitude ?>, <?= $longitude ?>); </script>
 <?php endif; ?>
 </body>
 </html>

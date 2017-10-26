@@ -6,17 +6,13 @@
 
     <!-- Virtualização do artefato -->
     <div class="w3-row w3-margin-top">
-        <div class="w3-container w3-deep-orange">
-            <p>Here goes the Three.js' container</p>
-        </div>
+        <div id="artefato" style="height: 500px;"></div>
     </div>
 
     <!-- Descrição completa do artefato -->
     <div class="w3-row w3-margin-top">
-        <div class="w3-container">
-            <h2>Descrição do artefato</h2>
-            <?= $complDesc ?>
-        </div>
+        <h2>Descrição do artefato</h2>
+        <?= $complDesc ?>
     </div>
 
     <!-- Imagens do artefato -->
@@ -28,8 +24,9 @@
 
     <!-- Origem do artefato -->
     <div class="w3-row w3-margin-top w3-margin-bottom">
-        <div class="w3-container w3-indigo">
-            <p>Here goes the map</p>
+        <h2>Origem do artefato</h2>
+        <div id="map">
+            <!-- Here goes the map -->
         </div>
     </div>
 </div>

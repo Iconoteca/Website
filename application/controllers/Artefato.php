@@ -15,8 +15,8 @@ class Artefato extends CI_Controller
     			'nomeArtefato'   => $artefato->nome,
     			'arquivo'        => base_url('assets/modelos/' . $artefato->nomeArquivo),
     			'complDesc'      => $artefato->complDesc,
-    			'lat'            => $artefato->lat,
-    			'lng'            => $artefato->lng,
+    			'latitude'       => $artefato->lat,
+    			'longitude'      => $artefato->lng,
     			// 'pictures'    => $this->m_icones->getImages($id)
     		);
 
