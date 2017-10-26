@@ -1,4 +1,5 @@
 <?php
+// https://www.tinymce.com/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Artefato extends CI_Controller
@@ -11,15 +12,15 @@ class Artefato extends CI_Controller
         {
             $artefato = $artefato->row();
             $dados = array(
-    			'nome'       => $artefato->nome,
-    			'arquivo'    => base_url('assets/modelos/' . $artefato->nomeArquivo),
-    			'complDesc'  => $artefato->complDesc,
-    			'lat'        => $artefato->lat,
-    			'lng'        => $artefato->lng,
-    			// 'imagens'    => $this->m_icones->getImages($id)
+    			'nomeArtefato'   => $artefato->nome,
+    			'arquivo'        => base_url('assets/modelos/' . $artefato->nomeArquivo),
+    			'complDesc'      => $artefato->complDesc,
+    			'lat'            => $artefato->lat,
+    			'lng'            => $artefato->lng,
+    			// 'pictures'    => $this->m_icones->getImages($id)
     		);
 
-            $dados['title'] = $dados['nome'] . " - Iconoteca";
+            $dados['title'] = $dados['nomeArtefato'] . " - Iconoteca";
             $dados['paginaArtefato'] = TRUE;
 
             $this->template->load('templates/default', 'artefato', $dados);
