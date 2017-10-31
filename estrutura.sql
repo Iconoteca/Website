@@ -4,11 +4,6 @@ DEFAULT COLLATE utf8_general_ci;
 
 USE Iconoteca;
 
-SELECT * FROM usuarios;
-SELECT * FROM categorias;
-SELECT * FROM artefatos;
-SELECT * FROM imagens;
-
 /* Usuarios */
 CREATE TABLE IF NOT EXISTS usuarios (
 	idUser INT(11) NOT NULL AUTO_INCREMENT,

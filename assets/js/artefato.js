@@ -25,7 +25,7 @@ function iniciarMapa(lat, lng) {
 /* Three js */
 var scene, camera, renderer, controls, container;
 
-var divWidth = $("#artefato").innerWidth(),
+var divWidth  = $("#artefato").innerWidth(),
 	divHeight = $("#artefato").innerHeight();
 
 function init(caminho) {
@@ -99,8 +99,8 @@ function addShadowedLight( x, y, z, color, intensity ) {
 
 function onWindowResize() {
 	$(document).ready(function() {
-		divWidth = $("#artefato").innerWidth();
-		divHeight = 2*$("#artefato").innerWidth()/3;
+        divWidth  = $("#artefato").innerWidth();
+        divHeight = $("#artefato").innerHeight();
 
 		camera.aspect = divWidth / divHeight;
 		camera.updateProjectionMatrix();

@@ -25,4 +25,15 @@ class M_icone extends CI_Model
 
         return $this->db->get();
     }
+
+    // Busca as imagens do artefato $id
+    public function getImages($id)
+    {
+        $this->db->where('idArtefato', $id);
+        $this->db->from("artefatos");
+        $this->db->select("nomeImagem");
+        $this->db->join('imagens', 'artefatos.idArtefato = imagens.idIcone');
+
+        return $this->db->get();
+    }
 }

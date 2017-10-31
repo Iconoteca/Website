@@ -17,7 +17,7 @@ class Artefato extends CI_Controller
     			'complDesc'      => $artefato->complDesc,
     			'latitude'       => $artefato->lat,
     			'longitude'      => $artefato->lng,
-    			// 'pictures'    => $this->m_icones->getImages($id)
+    			'pictures'       => $this->m_icone->getImages($id)
     		);
 
             $dados['title'] = $dados['nomeArtefato'] . " - Iconoteca";

@@ -1,3 +1,10 @@
+USE Iconoteca;
+
+SELECT * FROM usuarios;
+SELECT * FROM categorias;
+SELECT * FROM artefatos;
+SELECT * FROM imagens;
+
 -- Usuarios
 INSERT INTO users (nome, email, senha) VALUE ('admin', 'admin@gmail.com', '202cb962ac59075b964b07152d234b70');
 
@@ -126,3 +133,30 @@ INSERT INTO artefatos (idOwner, nome, categoria, shortDesc, complDesc, nomeArqui
 <p style=\"text-align: justify;\">Nam <strong>pellentesque</strong>, erat ut luctus facilisis, sem ligula rutrum orci, egestas <span style=\"text-decoration: line-through;\">varius tortor</span> mi ornare turpis. Vivamus sit amet ligula sed diam dignissim varius ut sit amet nisi. Quisque in ligula ultricies, ullamcorper magna nec, sagittis odio. Aliquam et dolor et diam euismod lobortis et vel est. Ut imperdiet, turpis eu <em>faucibus vehicula</em>, lacus nulla porttitor lacus, accumsan euismod magna quam at ante. Curabitur sit amet orci iaculis, gravida massa ut, viverra justo. Etiam quis nibh in tortor aliquet dapibus ultrices eget arcu. <strong>Duis porta ante nunc, sit amet feugiat nisi tincidunt quis</strong>. Fusce sit amet tincidunt nisi. Ut sodales diam ut felis varius sagittis. Vivamus dapibus ut mi ultrices condimentum. Sed sed lacinia quam. Nunc augue orci, euismod ut ipsum at, porttitor finibus velit. Pellentesque hendrerit ex accumsan, consequat ante at, egestas odio. Mauris aliquet posuere laoreet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
 <p style=\"text-align: justify;\">Aenean id imperdiet dolor. Vestibulum molestie tempor eros. Sed arcu nisl, consequat eu elit vel, porttitor viverra lacus. Praesent a ipsum tincidunt lectus finibus viverra eu<strong> vestibulum</strong> eros. Ut sit amet nunc eget est consequat vulputate. In sollicitudin massa ac ullamcorper finibus. In et eleifend mi. Sed convallis vulputate eleifend. Phasellus massa metus, rhoncus vel tellus id, pulvinar blandit ex. Integer at dapibus magna. Sed ullamcorper nunc hendrerit odio mollis porta.</p>
 ", "01_100.stl", -28.231451442049583, -52.381753658288574, "img1.jpg");
+
+-- Imagens
+INSERT INTO imagens (idIcone, nomeImagem) VALUES
+(1,  "objeto01.jpg"), (1,  "objeto02.jpg"), (1,  "objeto03.jpg"), (1,  "objeto04.jpg"), (1,   "objeto01.jpg"), (1,   "objeto02.jpg"),
+(2,  "objeto02.jpg"), (2,  "objeto03.jpg"), (2,  "objeto04.jpg"), (2,  "objeto01.jpg"), (2,   "objeto02.jpg"), (2,   "objeto03.jpg"),
+(3,  "objeto03.jpg"), (3,  "objeto04.jpg"), (3,  "objeto01.jpg"), (3,  "objeto02.jpg"), (3,   "objeto03.jpg"), (3,   "objeto04.jpg"),
+(4,  "objeto04.jpg"), (4,  "objeto01.jpg"), (4,  "objeto02.jpg"), (4,  "objeto03.jpg"), (4,   "objeto04.jpg"), (4,   "objeto01.jpg"),
+(5,  "objeto01.jpg"), (5,  "objeto02.jpg"), (5,  "objeto03.jpg"), (5,  "objeto04.jpg"), (5,   "objeto01.jpg"), (5,   "objeto02.jpg"),
+(6,  "objeto02.jpg"), (6,  "objeto03.jpg"), (6,  "objeto04.jpg"), (6,  "objeto01.jpg"), (6,   "objeto02.jpg"), (6,   "objeto03.jpg"),
+(7,  "objeto03.jpg"), (7,  "objeto04.jpg"), (7,  "objeto01.jpg"), (7,  "objeto02.jpg"), (7,   "objeto03.jpg"), (7,   "objeto04.jpg"),
+(8,  "objeto04.jpg"), (8,  "objeto01.jpg"), (8,  "objeto02.jpg"), (8,  "objeto03.jpg"), (8,   "objeto04.jpg"), (8,   "objeto01.jpg"),
+(9,  "objeto01.jpg"), (9,  "objeto02.jpg"), (9,  "objeto03.jpg"), (9,  "objeto04.jpg"), (9,   "objeto01.jpg"), (9,   "objeto02.jpg"),
+(10, "objeto02.jpg"), (10, "objeto03.jpg"), (10, "objeto04.jpg"), (10, "objeto01.jpg"), (10,  "objeto02.jpg"), (10,  "objeto03.jpg"),
+(11, "objeto03.jpg"), (11, "objeto04.jpg"), (11, "objeto01.jpg"), (11, "objeto02.jpg"), (11,  "objeto03.jpg"), (11,  "objeto04.jpg"),
+(12, "objeto04.jpg"), (12, "objeto01.jpg"), (12, "objeto02.jpg"), (12, "objeto03.jpg"), (12,  "objeto04.jpg"), (12,  "objeto01.jpg"),
+(13, "objeto01.jpg"), (13, "objeto02.jpg"), (13, "objeto03.jpg"), (13, "objeto04.jpg"), (13,  "objeto01.jpg"), (13,  "objeto02.jpg"),
+(14, "objeto02.jpg"), (14, "objeto03.jpg"), (14, "objeto04.jpg"), (14, "objeto01.jpg"), (14,  "objeto02.jpg"), (14,  "objeto03.jpg"),
+(15, "objeto03.jpg"), (15, "objeto04.jpg"), (15, "objeto01.jpg"), (15, "objeto02.jpg"), (15,  "objeto03.jpg"), (15,  "objeto04.jpg"),
+(16, "objeto04.jpg"), (16, "objeto01.jpg"), (16, "objeto02.jpg"), (16, "objeto03.jpg"), (16,  "objeto04.jpg"), (16,  "objeto01.jpg"),
+(17, "objeto01.jpg"), (17, "objeto02.jpg"), (17, "objeto03.jpg"), (17, "objeto04.jpg"), (17,  "objeto01.jpg"), (17,  "objeto02.jpg"),
+(18, "objeto02.jpg"), (18, "objeto03.jpg"), (18, "objeto04.jpg"), (18, "objeto01.jpg"), (18,  "objeto02.jpg"), (18,  "objeto03.jpg"),
+(19, "objeto03.jpg"), (19, "objeto04.jpg"), (19, "objeto01.jpg"), (19, "objeto02.jpg"), (19,  "objeto03.jpg"), (19,  "objeto04.jpg"),
+(20, "objeto04.jpg"), (20, "objeto01.jpg"), (20, "objeto02.jpg"), (20, "objeto03.jpg"), (20,  "objeto04.jpg"), (20,  "objeto01.jpg"),
+(21, "objeto01.jpg"), (21, "objeto02.jpg"), (21, "objeto03.jpg"), (21, "objeto04.jpg"), (21,  "objeto01.jpg"), (21,  "objeto02.jpg"),
+(22, "objeto02.jpg"), (22, "objeto03.jpg"), (22, "objeto04.jpg"), (22, "objeto01.jpg"), (22,  "objeto02.jpg"), (22,  "objeto03.jpg"),
+(23, "objeto03.jpg"), (23, "objeto04.jpg"), (23, "objeto01.jpg"), (23, "objeto02.jpg"), (23,  "objeto03.jpg"), (23,  "objeto04.jpg"),
+(24, "objeto04.jpg"), (24, "objeto01.jpg"), (24, "objeto02.jpg"), (24, "objeto03.jpg"), (24,  "objeto04.jpg"), (24,  "objeto01.jpg");

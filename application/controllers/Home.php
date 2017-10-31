@@ -15,6 +15,7 @@ class Home extends CI_Controller
 		if($limit == 0) $limit++;
 
 		$dados['title']  	= "Iconoteca";
+		$dados['link']		= TRUE;
 		$dados['artefatos']	= $this->m_icone->get("artefatos", $categoria, $limit, "idArtefato", "desc");
 		$dados['categoria']	= $categoria;
 		$totalRows = $this->m_icone->get("artefatos", $categoria)->num_rows();
